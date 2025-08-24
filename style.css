@@ -1,87 +1,180 @@
-/* Overall Page Styling */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #000000, #0f1f0f);
-  color: #e0ffe0;
+/* =========================
+   Cortland Neon Dark Theme
+   ========================= */
+
+/* --- Design Tokens --- */
+:root{
+  --bg-0:#000000;
+  --bg-1:#0f1f0f;
+  --surface:rgba(16,32,16,.6);
+  --surface-strong:rgba(16,32,16,.9);
+  --text:#e0ffe0;
+  --muted:#a0ffe0;
+  --primary:#21f37b;
+  --accent:#39ff90;
+  --accent-2:#72ffd6;
+  --card-border:rgba(57,255,144,.25);
+  --shadow-neon:0 10px 30px rgba(33,243,123,.15);
+  --radius-lg:16px;
+  --radius-sm:10px;
 }
 
-/* Header */
-header {
-  background-color: #0a1a0a;
-  color: #21f37b;
-  text-align: center;
-  padding: 2rem 1rem;
-  box-shadow: 0 4px 8px rgba(0, 255, 128, 0.1);
+/* --- Reset / Base --- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height:1.55;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(33,243,123,.10), transparent 60%),
+    radial-gradient(1200px 600px at 110% 10%, rgba(114,255,214,.08), transparent 60%),
+    linear-gradient(to bottom, var(--bg-0), var(--bg-1));
+  min-height:100dvh;
 }
 
-/* Navigation Bar */
-nav {
-  background-color: #102010;
-  padding: 0.75rem;
-  text-align: center;
+/* Subtle animated grid aura */
+body::after{
+  content:"";
+  position:fixed; inset:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg, rgba(57,255,144,.04), rgba(57,255,144,.04) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(0deg, rgba(57,255,144,.035), rgba(57,255,144,.035) 1px, transparent 1px, transparent 24px);
+  mask-image: radial-gradient(50% 40% at 50% 0%, #000 50%, transparent 100%);
+  animation: drift 18s linear infinite;
+}
+@keyframes drift{to{transform:translateY(18px)}}
+
+/* Helper */
+.container{max-width:1100px; margin:auto; padding-inline:1.25rem}
+section{padding:2.25rem 0; scroll-margin-top:90px}
+section h2{
+  color:var(--primary);
+  border-bottom:2px solid var(--primary);
+  padding-bottom:.35rem; margin:0 0 1.1rem
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* --- Header / Hero --- */
+header{
+  text-align:center;
+  padding:3rem 1rem 2rem;
+  background:linear-gradient(180deg, #0a1a0a, rgba(10,26,10,.6));
+  box-shadow:0 4px 8px rgba(0,255,128,.10);
+}
+header h1{
+  margin:0 0 .25rem;
+  font-size:clamp(2rem, 3.8vw, 3rem);
+  letter-spacing:.5px;
+  text-shadow:0 0 12px rgba(57,255,144,.25);
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+header p{color:var(--muted); margin:.25rem 0 0}
+
+/* --- Sticky / Blur Nav --- */
+nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in oklab, var(--surface-strong) 70%, #000 30%);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--card-border);
+}
+nav .container{display:flex; justify-content:center; align-items:center}
+nav ul{list-style:none; margin:0; padding:.6rem 0; display:flex; gap:.8rem; flex-wrap:wrap}
+nav a{
+  display:inline-block; padding:.55rem .9rem;
+  color:var(--accent); font-weight:700; text-decoration:none;
+  border-radius:999px; border:1px solid transparent;
+  transition:color .25s ease, background .25s ease, transform .2s ease, border-color .25s ease;
+}
+nav a:hover{color:var(--accent-2); background:rgba(57,255,144,.08); border-color:var(--card-border); transform:translateY(-1px)}
+nav a:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px}
+
+/* --- Cards / Lists --- */
+.project-list{list-style:none; padding:0; margin:0; display:grid; gap:1.25rem;
+  grid-template-columns:repeat(auto-fit, minmax(270px,1fr))}
+.project-list li, .card{
+  background:var(--surface);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-lg);
+  padding:1.05rem 1.2rem;
+  box-shadow:var(--shadow-neon);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease
+}
+.project-list li:hover, .card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(114,255,214,.45);
+  box-shadow:0 14px 38px rgba(114,255,214,.16), 0 0 0 1px rgba(114,255,214,.18)
+}
+.project-list h3{margin:.1rem 0 .25rem; font-size:1.1rem}
+.project-list a{color:var(--accent)}
+.project-list a:hover{color:var(--accent-2)}
+
+/* --- Video Gallery --- */
+.video-gallery{
+  display:grid; gap:1.25rem;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr))
+}
+.video-gallery figure{
+  margin:0; padding:1rem; border-radius:var(--radius-lg);
+  background:var(--surface); border:1px solid var(--card-border);
+  box-shadow:var(--shadow-neon); transition:transform .25s ease, box-shadow .25s ease
+}
+.video-gallery figure:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(33,243,123,.18)}
+.video-gallery figcaption{color:var(--muted); margin:.25rem 0 .6rem}
+video{width:100%; height:auto; border-radius:12px; outline:1px solid rgba(114,255,214,.25)}
+
+/* --- Documents --- */
+#documents ul{list-style:none; padding:0; margin:0; display:grid; gap:.6rem}
+#documents li a{
+  display:flex; align-items:center; gap:.6rem;
+  padding:.6rem .8rem; border-radius:12px; text-decoration:none;
+  color:var(--accent); background:rgba(57,255,144,.06); border:1px solid var(--card-border);
+  transition:background .25s ease, transform .2s ease
+}
+#documents li a::before{content:"📄"; font-size:1.1rem}
+#documents li a:hover{background:rgba(114,255,214,.10); transform:translateY(-1px)}
+
+/* --- Skills as Chips --- */
+.skills-list{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.6rem}
+.skills-list li{
+  background:rgba(33,243,123,.08);
+  border:1px solid var(--card-border);
+  border-radius:999px; padding:.5rem .75rem; font-size:.95rem
 }
 
-nav li {
-  display: inline-block;
-  margin: 0 15px;
+/* --- Links --- */
+a{color:var(--accent); transition:color .25s ease}
+a:hover{color:var(--muted)}
+
+/* --- Footer --- */
+footer{
+  background:#0a1a0a; color:#cfcfcf; text-align:center; padding:1.1rem;
+  border-top:1px solid var(--card-border)
+}
+footer a{color:var(--accent-2); text-decoration:none}
+footer a:hover{color:#fff}
+
+/* --- Buttons (optional utility) --- */
+.btn{
+  display:inline-block; padding:.65rem 1rem; border-radius:12px; text-decoration:none;
+  font-weight:700; border:1px solid var(--card-border);
+  background:rgba(57,255,144,.08); color:var(--accent);
+  transition:transform .2s ease, box-shadow .25s ease, background .25s ease
+}
+.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow-neon); background:rgba(114,255,214,.12)}
+.btn.primary{background:linear-gradient(90deg, rgba(33,243,123,.18), rgba(114,255,214,.18)); color:#eafff6}
+
+/* --- Accessibility / UX --- */
+:focus-visible{outline:2px solid var(--accent-2); outline-offset:3px}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important}
 }
 
-nav a {
-  color: #39ff90;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+/* --- Custom Scrollbar (WebKit) --- */
+*::-webkit-scrollbar{height:10px; width:10px}
+*::-webkit-scrollbar-track{background:rgba(16,32,16,.6)}
+*::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent), var(--accent-2)); border-radius:999px}
 
-nav a:hover {
-  color: #72ffd6;
-}
-
-/* Sections */
-section {
-  padding: 2rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-section h2 {
-  color: #21f37b;
-  border-bottom: 2px solid #21f37b;
-  padding-bottom: 0.25rem;
-  margin-bottom: 1rem;
-}
-
-/* Links Inside Content */
-a {
-  color: #39ff90;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: #a0ffe0;
-}
-
-/* Footer */
-footer {
-  background-color: #0a1a0a;
-  color: #ccc;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #72ffd6;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #ffffff;
-}
+/* --- Alternating section tint for depth --- */
+main section:nth-of-type(odd){background:linear-gradient(180deg, rgba(33,243,123,.03), transparent 60%)}
