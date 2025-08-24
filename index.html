@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cortland Burns | Computer Science ePortfolio</title>
   <link rel="stylesheet" href="style.css"/>
+  <meta name="description" content="Cortland Burns — secure, full-stack projects (MEAN, Flutter), automation, and demos."/>
 </head>
 <body>
   <header>
     <h1>Cortland Burns</h1>
     <p>Computer Science ePortfolio</p>
-    <p><a class="btn primary" href="#highlights">See Security • Cloud • Automation Highlights</a></p>
-    <!-- NEW: direct download CTA for the finished ZIP -->
-    <p><a class="btn" href="documents/travlr-finished.zip" download>Download Finished Travlr (ZIP)</a></p>
+    <p><a class="btn primary" href="#highlights">See Security • Automation Highlights</a></p>
+    <!-- Direct download CTA for the finished Travlr package -->
+    <p><a class="btn" href="/cburns-portfolio/documents/travlr-finished.zip" download>Download Finished Travlr (ZIP)</a></p>
   </header>
 
   <nav>
@@ -35,15 +36,14 @@
       <h2>About Me</h2>
       <div class="card">
         <p>
-          Hi, I’m Cortland Burns! Over the last two years I’ve grown from building single-app solutions to
-          delivering <strong>secure, cloud-ready systems</strong> across web and mobile. My focus is
-          <em>application development</em>, <em>full-stack design</em>, and <em>secure architecture</em>—with hands-on practice
-          improving auth flows, hardening APIs, integrating cloud databases (Firebase/AWS), and automating builds/tests.
+          Hi, I’m Cortland Burns! Over the last two years I’ve grown from building single-app solutions to delivering
+          <strong>secure, production-ready systems</strong> across web and mobile. My focus is <em>application development</em>,
+          <em>full-stack design</em>, and <em>secure architecture</em>—with hands-on work hardening auth flows, validating inputs,
+          and automating builds/tests. For mobile <strong>Flutter</strong> projects I integrate cloud services; the
+          <strong>Travlr (MEAN)</strong> project remains vendor-agnostic.
         </p>
         <div class="skills-list" aria-label="Focus chips">
           <span class="btn">JWT & API Security</span>
-          <span class="btn">Firebase Auth/Firestore</span>
-          <span class="btn">AWS (S3 • Lambda • API Gateway)</span>
           <span class="btn">Automation & CI</span>
           <span class="btn">MEAN Stack</span>
           <span class="btn">Flutter • SQLite</span>
@@ -51,34 +51,33 @@
       </div>
     </section>
 
-    <!-- Security • Cloud • Automation Highlights -->
+    <!-- Security • Automation Highlights -->
     <section id="highlights">
       <h2>Engineering Highlights</h2>
       <div class="project-list">
         <div class="card">
           <h3>Secure Software Growth</h3>
           <ul>
-            <li>Hardened auth with <strong>JWT</strong> (expiry/refresh), role checks, and an Angular <code>HttpInterceptor</code> that injects tokens and handles 401/403 gracefully.</li>
-            <li>Backend hardening: <strong>Helmet</strong>, <strong>rate-limiting</strong>, strict <strong>CORS</strong>, <strong>input validation</strong> (Zod/Joi), <strong>bcrypt</strong> hashing, sanitized Mongo queries.</li>
-            <li>Secrets via <strong>dotenv</strong> + environment configs for dev/prod; minimal surface area on public endpoints.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Cloud & Data Integrations</h3>
-          <ul>
-            <li><strong>Firebase</strong>: evaluating Auth for passwordless sign-in, <strong>Firestore</strong> for sync, and Hosting for rapid previews.</li>
-            <li><strong>AWS</strong>: using S3 for static media/artifacts; exploring <strong>API Gateway + Lambda</strong> for serverless endpoints and webhooks.</li>
-            <li>Structured deployment configs to keep creds out of source and enable principle of least privilege.</li>
+            <li><strong>JWT</strong> with expiration, Angular <code>HttpInterceptor</code> for token attach & 401/403 handling, protected admin routes.</li>
+            <li>Backend hardening: <strong>Helmet</strong>, <strong>rate-limiting</strong>, strict <strong>CORS</strong>, <strong>Zod</strong> request validation, sanitized Mongo queries, <strong>bcrypt</strong> hashing.</li>
+            <li>Environment-based secrets via <strong>dotenv</strong>, minimal surface on public endpoints.</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>Automation & APIs</h3>
           <ul>
-            <li>API first: clean REST surface (auth, resources, admin), typed requests/responses, and testable contracts.</li>
-            <li><strong>GitHub Actions</strong> to lint, test, and build MEAN/Flutter paths; optional deploy step to Pages/Firebase.</li>
-            <li>Postman/OpenAPI collections (WIP) for repeatable testing and onboarding.</li>
+            <li>Clean REST surface (auth, trips) with typed contracts and validation.</li>
+            <li><strong>GitHub Actions</strong> ready: lint → tests → build; optional artifact upload/releases.</li>
+            <li>Postman/OpenAPI collections (in progress) for repeatable testing.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Cloud Integrations (Flutter only)</h3>
+          <ul>
+            <li>For <strong>Flutter</strong> apps: Firebase Auth/Firestore/Storage or AWS as needed.</li>
+            <li><em>Travlr (MEAN)</em> runs without Firebase/AWS dependencies (vendor-agnostic).</li>
           </ul>
         </div>
       </div>
@@ -97,14 +96,14 @@
         <ul>
           <li><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener noreferrer">Source: InvenTitan repository</a></li>
           <li><a href="https://github.com/Cburns1337/CS360-Journal-8_3" target="_blank" rel="noopener noreferrer">Reference: CS360 Journal 8_3</a></li>
-          <li><a href="media/AndroidApp.mp4" target="_blank" rel="noopener noreferrer">Demo Video: Android Application</a></li>
-          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Narrative (DOCX)</a></li>
+          <li><a href="/cburns-portfolio/media/AndroidApp.mp4" target="_blank" rel="noopener noreferrer">Demo Video: Android Application</a></li>
+          <li><a href="/cburns-portfolio/documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Narrative (DOCX)</a></li>
         </ul>
         <div class="card" style="margin-top:1rem">
-          <h4 style="margin-top:0">Cloud Extensions & Roadmap</h4>
+          <h4 style="margin-top:0">Cloud Extensions (Flutter)</h4>
           <ul>
-            <li>Optional sync layer with <strong>Firebase Auth + Firestore</strong> (user-scoped inventories, offline-first).</li>
-            <li>Media storage via <strong>Firebase Storage</strong> or <strong>AWS S3</strong> (signed URLs, limited TTL).</li>
+            <li>Optional sync with <strong>Firebase Auth + Firestore</strong> (user-scoped inventories, offline-first).</li>
+            <li>Media storage via <strong>Firebase Storage</strong> or AWS S3 (signed URLs, limited TTL).</li>
             <li>CI: Flutter build matrix (Android/iOS/Web) with GitHub Actions.</li>
           </ul>
         </div>
@@ -118,28 +117,28 @@
         </p>
         <ul>
           <li><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener noreferrer">Source: cs465-fullstack repository</a></li>
-          <li><a href="media/TravlrGetaways.mp4" target="_blank" rel="noopener noreferrer">Demo Video: Travlr Getaways</a></li>
-          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Narrative (DOCX)</a></li>
-          <!-- NEW: link to finished package -->
-          <li><a href="documents/travlr-finished.zip" target="_blank" rel="noopener noreferrer" download>Finished Travlr Package (ZIP)</a></li>
+          <li><a href="/cburns-portfolio/media/TravlrGetaways.mp4" target="_blank" rel="noopener noreferrer">Demo Video: Travlr Getaways</a></li>
+          <li><a href="/cburns-portfolio/documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Narrative (DOCX)</a></li>
+          <li><a href="/cburns-portfolio/documents/travlr-finished.zip" target="_blank" rel="noopener noreferrer" download>Finished Travlr Package (ZIP)</a></li>
         </ul>
 
         <div class="project-list" style="margin-top:1rem">
           <div class="card">
             <h4 style="margin-top:0">Security Improvements</h4>
             <ul>
-              <li><strong>JWT</strong> with expiration & refresh strategy; Angular <strong>JWT interceptor</strong> handles token attach & 401/403 flows.</li>
-              <li><strong>bcrypt</strong> password hashing; strict <strong>CORS</strong>; <strong>Helmet</strong> headers; <strong>rate-limiting</strong> on auth & admin routes.</li>
-              <li>Request validation (e.g., <strong>Zod/Joi</strong>), sanitized Mongo queries, Mongoose schema validation & indexes.</li>
-              <li>Secrets via <strong>dotenv</strong> / environment; no secrets in source; principle of least privilege in DB users.</li>
+              <li><strong>JWT</strong> with expiration; Angular <strong>JWT interceptor</strong> handles token attach & 401/403 flows.</li>
+              <li><strong>bcrypt</strong> password hashing; strict <strong>CORS</strong>; <strong>Helmet</strong>; <strong>rate-limiting</strong> on auth/admin.</li>
+              <li><strong>Zod</strong> request validation, sanitized Mongo queries, Mongoose validation & indexes.</li>
+              <li>Secrets via <strong>dotenv</strong>; no secrets in source; least-privileged DB user.</li>
             </ul>
           </div>
           <div class="card">
-            <h4 style="margin-top:0">Cloud & Automation</h4>
+            <h4 style="margin-top:0">Deployment & Ops (Vendor-agnostic)</h4>
             <ul>
-              <li>Static/media to <strong>AWS S3</strong>; optional <strong>CloudFront</strong> for CDN; environment-based builds.</li>
-              <li>Serverless hooks via <strong>API Gateway + Lambda</strong> (notifications, audit logs, or webhooks).</li>
-              <li><strong>GitHub Actions</strong>: lint → unit tests → build Angular → run API tests → (optional) deploy.</li>
+              <li>12-factor environment config; production overrides.</li>
+              <li>Logging with <strong>morgan</strong> (access) + <strong>winston</strong> (app), structured JSON logs.</li>
+              <li>Optional reverse proxy (Nginx) and TLS termination for HTTPS.</li>
+              <li><strong>GitHub Actions</strong>: lint → tests → API build; artifact uploads for releases.</li>
             </ul>
           </div>
         </div>
@@ -170,7 +169,7 @@
         <figure>
           <figcaption>Travlr Getaways Demo</figcaption>
           <video controls width="560" preload="metadata">
-            <source src="media/TravlrGetaways.mp4" type="video/mp4"/>
+            <source src="/cburns-portfolio/media/TravlrGetaways.mp4" type="video/mp4"/>
             Your browser does not support the video tag.
           </video>
         </figure>
@@ -178,7 +177,7 @@
         <figure>
           <figcaption>Android Application Demo</figcaption>
           <video controls width="560" preload="metadata">
-            <source src="media/AndroidApp.mp4" type="video/mp4"/>
+            <source src="/cburns-portfolio/media/AndroidApp.mp4" type="video/mp4"/>
             Your browser does not support the video tag.
           </video>
         </figure>
@@ -188,49 +187,30 @@
     <section id="documents">
       <h2>Documents</h2>
       <ul>
-        <li><a href="documents/Narrative%20to%20Successful%20Coding.docx" target="_blank" rel="noopener noreferrer" download>Narrative to Successful Coding (DOCX)</a></li>
-        <li><a href="documents/Setting%20up%20the%20Narrative%20for%20Success.docx" target="_blank" rel="noopener noreferrer" download>Setting up the Narrative for Success (DOCX)</a></li>
-        <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>InvenTitan &amp; Travlr Getaways Narrative (DOCX)</a></li>
-        <li><a href="documents/Artifact%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Artifact Narrative (DOCX)</a></li>
-        <!-- NEW: finished package in documents -->
-        <li><a href="documents/travlr-finished.zip" target="_blank" rel="noopener noreferrer" download>Travlr Finished (ZIP)</a></li>
+        <li><a href="/cburns-portfolio/documents/Narrative%20to%20Successful%20Coding.docx" target="_blank" rel="noopener noreferrer" download>Narrative to Successful Coding (DOCX)</a></li>
+        <li><a href="/cburns-portfolio/documents/Setting%20up%20the%20Narrative%20for%20Success.docx" target="_blank" rel="noopener noreferrer" download>Setting up the Narrative for Success (DOCX)</a></li>
+        <li><a href="/cburns-portfolio/documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>InvenTitan &amp; Travlr Getaways Narrative (DOCX)</a></li>
+        <li><a href="/cburns-portfolio/documents/Artifact%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Artifact Narrative (DOCX)</a></li>
+        <li><a href="/cburns-portfolio/documents/travlr-finished.zip" target="_blank" rel="noopener noreferrer" download>Travlr Finished (ZIP)</a></li>
       </ul>
     </section>
 
-    <!-- Commands you can run (shows you're hands-on) -->
+    <!-- Commands (shows you're hands-on) -->
     <section id="commands">
       <h2>Automation & Security Setup (Quick Commands)</h2>
       <div class="card">
         <h3 style="margin-top:0">MEAN API Hardening</h3>
-        <pre><code>npm i helmet express-rate-limit cors bcrypt jsonwebtoken dotenv zod mongoose \
-  mongo-sanitize</code></pre>
-        <pre><code>// example (Express)
-import helmet from "helmet";
-import rateLimit from "express-rate-limit";
-import cors from "cors";
-
+        <pre><code>npm i helmet express-rate-limit cors bcrypt jsonwebtoken dotenv zod validator express-mongo-sanitize compression</code></pre>
+        <pre><code>// Express snippet
 app.use(helmet());
-app.use(cors({ origin: ["https://your-admin.app"], methods: ["GET","POST","PUT","DELETE"], credentials: true }));
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 200 }));</code></pre>
+app.use(cors({ origin: ["https://your-site.app"], methods: ["GET","POST","PUT","DELETE"], credentials: true }));
+app.use(rateLimit({ windowMs: 15*60*1000, max: 200 }));</code></pre>
       </div>
 
       <div class="card">
         <h3 style="margin-top:0">Angular Admin (JWT Interceptor)</h3>
         <pre><code>ng g interceptor auth/jwt
-// attach token, redirect on 401/403, handle refresh if present</code></pre>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top:0">Firebase & AWS (CLIs)</h3>
-        <pre><code>// Firebase
-npm i firebase
-npm i -g firebase-tools
-firebase login
-firebase init
-
-// AWS CLI (Windows)
-winget install AWSCLI.AWSCLI
-aws configure  # use least-privileged IAM user</code></pre>
+// attach token, redirect on 401/403</code></pre>
       </div>
 
       <div class="card">
@@ -245,11 +225,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: npm ci && npm run lint && npm test  # API
-      # - run: cd app_admin && npm ci && npm run build  # Angular
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v4
-      #   with: { name: build, path: app_admin/dist }</code></pre>
+      - run: npm ci && npm run lint --if-present && npm test --if-present</code></pre>
       </div>
     </section>
 
