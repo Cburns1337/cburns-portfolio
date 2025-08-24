@@ -10,49 +10,135 @@
   <header>
     <h1>Cortland Burns</h1>
     <p>Computer Science ePortfolio</p>
+    <p><a class="btn primary" href="#highlights">See Security • Cloud • Automation Highlights</a></p>
   </header>
 
   <nav>
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#artifacts">Artifacts</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#demos">Demos</a></li>
-      <li><a href="#documents">Documents</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="container">
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#artifacts">Artifacts</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#demos">Demos</a></li>
+        <li><a href="#documents">Documents</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <main>
+  <main class="container">
     <section id="about">
       <h2>About Me</h2>
-      <p>Hi, I’m Cortland Burns! I've been pursuing a degree in Computer Science for over two years, with a strong focus on application development, full-stack design, and secure systems architecture. I have a passion for solving real-world problems through scalable and intuitive software — whether that means optimizing backend logic, designing dynamic interfaces, or building smart agents.</p>
+      <div class="card">
+        <p>
+          Hi, I’m Cortland Burns! Over the last two years I’ve grown from building single-app solutions to
+          delivering <strong>secure, cloud-ready systems</strong> across web and mobile. My focus is
+          <em>application development</em>, <em>full-stack design</em>, and <em>secure architecture</em>—with hands-on practice
+          improving auth flows, hardening APIs, integrating cloud databases (Firebase/AWS), and automating builds/tests.
+        </p>
+        <div class="skills-list" aria-label="Focus chips">
+          <span class="btn">JWT & API Security</span>
+          <span class="btn">Firebase Auth/Firestore</span>
+          <span class="btn">AWS (S3 • Lambda • API Gateway)</span>
+          <span class="btn">Automation & CI</span>
+          <span class="btn">MEAN Stack</span>
+          <span class="btn">Flutter • SQLite</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security • Cloud • Automation Highlights -->
+    <section id="highlights">
+      <h2>Engineering Highlights</h2>
+      <div class="project-list">
+        <div class="card">
+          <h3>Secure Software Growth</h3>
+          <ul>
+            <li>Hardened auth with <strong>JWT</strong> (expiry/refresh), role checks, and an Angular <code>HttpInterceptor</code> that injects tokens and handles 401/403 gracefully.</li>
+            <li>Backend hardening: <strong>Helmet</strong>, <strong>rate-limiting</strong>, strict <strong>CORS</strong>, <strong>input validation</strong> (Zod/Joi), <strong>bcrypt</strong> hashing, sanitized Mongo queries.</li>
+            <li>Secrets via <strong>dotenv</strong> + environment configs for dev/prod; minimal surface area on public endpoints.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Cloud & Data Integrations</h3>
+          <ul>
+            <li><strong>Firebase</strong>: evaluating Auth for passwordless sign-in, <strong>Firestore</strong> for sync, and Hosting for rapid previews.</li>
+            <li><strong>AWS</strong>: using S3 for static media/artifacts; exploring <strong>API Gateway + Lambda</strong> for serverless endpoints and webhooks.</li>
+            <li>Structured deployment configs to keep creds out of source and enable principle of least privilege.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Automation & APIs</h3>
+          <ul>
+            <li>API first: clean REST surface (auth, resources, admin), typed requests/responses, and testable contracts.</li>
+            <li><strong>GitHub Actions</strong> to lint, test, and build MEAN/Flutter paths; optional deploy step to Pages/Firebase.</li>
+            <li>Postman/OpenAPI collections (WIP) for repeatable testing and onboarding.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- In-depth Artifacts (focus on two) -->
     <section id="artifacts">
       <h2>Artifacts (In-Depth)</h2>
 
-      <article>
+      <article class="card">
         <h3>InvenTitan (Android / Flutter)</h3>
-        <p>A cross-platform inventory manager. Originated as an Android app and expanded with a Flutter/Dart implementation. Features full CRUD, local persistence (SQLite), and a modular UI.</p>
+        <p>
+          A cross-platform inventory manager. Originated as Android (Java) and expanded with a Flutter/Dart build.
+          Features full CRUD, local persistence via <strong>SQLite</strong>, and a modular, maintainable UI.
+        </p>
         <ul>
-          <li><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener">Source: InvenTitan repository</a></li>
-          <li><a href="https://github.com/Cburns1337/CS360-Journal-8_3" target="_blank" rel="noopener">Reference: CS360 Journal 8_3</a></li>
-          <li><a href="media/AndroidApp.mp4" target="_blank" rel="noopener">Demo Video: Android Application</a></li>
-          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener" download>Narrative (DOCX)</a></li>
+          <li><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener noreferrer">Source: InvenTitan repository</a></li>
+          <li><a href="https://github.com/Cburns1337/CS360-Journal-8_3" target="_blank" rel="noopener noreferrer">Reference: CS360 Journal 8_3</a></li>
+          <li><a href="media/AndroidApp.mp4" target="_blank" rel="noopener noreferrer">Demo Video: Android Application</a></li>
+          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Narrative (DOCX)</a></li>
         </ul>
+        <div class="card" style="margin-top:1rem">
+          <h4 style="margin-top:0">Cloud Extensions & Roadmap</h4>
+          <ul>
+            <li>Optional sync layer with <strong>Firebase Auth + Firestore</strong> (user-scoped inventories, offline-first).</li>
+            <li>Media storage via <strong>Firebase Storage</strong> or <strong>AWS S3</strong> (signed URLs, limited TTL).</li>
+            <li>CI: Flutter build matrix (Android/iOS/Web) with GitHub Actions.</li>
+          </ul>
+        </div>
       </article>
 
-      <article>
+      <article class="card">
         <h3>Travlr Getaways (Full Stack MEAN)</h3>
-        <p>A full stack travel booking platform using MongoDB, Express.js, Angular, and Node.js. Public site with Handlebars plus a secure Angular admin SPA with JWT authentication.</p>
+        <p>
+          A full-stack travel booking platform using <strong>MongoDB • Express • Angular • Node</strong>. Public site with Handlebars
+          plus a secure Angular Admin SPA using <strong>JWT authentication</strong> and protected routes.
+        </p>
         <ul>
-          <li><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener">Source: cs465-fullstack repository</a></li>
-          <li><a href="media/TravlrGetaways.mp4" target="_blank" rel="noopener">Demo Video: Travlr Getaways</a></li>
-          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener" download>Narrative (DOCX)</a></li>
+          <li><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener noreferrer">Source: cs465-fullstack repository</a></li>
+          <li><a href="media/TravlrGetaways.mp4" target="_blank" rel="noopener noreferrer">Demo Video: Travlr Getaways</a></li>
+          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Narrative (DOCX)</a></li>
         </ul>
+
+        <div class="project-list" style="margin-top:1rem">
+          <div class="card">
+            <h4 style="margin-top:0">Security Improvements</h4>
+            <ul>
+              <li><strong>JWT</strong> with expiration & refresh strategy; Angular <strong>JWT interceptor</strong> handles token attach & 401/403 flows.</li>
+              <li><strong>bcrypt</strong> password hashing; strict <strong>CORS</strong>; <strong>Helmet</strong> headers; <strong>rate-limiting</strong> on auth & admin routes.</li>
+              <li>Request validation (e.g., <strong>Zod/Joi</strong>), sanitized Mongo queries, Mongoose schema validation & indexes.</li>
+              <li>Secrets via <strong>dotenv</strong> / environment; no secrets in source; principle of least privilege in DB users.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 style="margin-top:0">Cloud & Automation</h4>
+            <ul>
+              <li>Static/media to <strong>AWS S3</strong>; optional <strong>CloudFront</strong> for CDN; environment-based builds.</li>
+              <li>Serverless hooks via <strong>API Gateway + Lambda</strong> (notifications, audit logs, or webhooks).</li>
+              <li><strong>GitHub Actions</strong>: lint → unit tests → build Angular → run API tests → (optional) deploy.</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -60,11 +146,11 @@
       <h2>Highlighted Projects</h2>
       <ul class="project-list">
         <li>
-          <h3><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener">InvenTitan Inventory Manager</a></h3>
-          <p>Inventory management app with secure auth, real-time updates, and a modular UI. Expanded with a Flutter/Dart version for cross-platform support.</p>
+          <h3><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener noreferrer">InvenTitan Inventory Manager</a></h3>
+          <p>Inventory management app with secure auth patterns, real-time UX, and a clean, modular UI. Expanded with a Flutter/Dart version for cross-platform support.</p>
         </li>
         <li>
-          <h3><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener">Travlr Getaways (Full Stack MEAN)</a></h3>
+          <h3><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener noreferrer">Travlr Getaways (Full Stack MEAN)</a></h3>
           <p>Full stack travel booking app (MongoDB, Express, Angular, Node). Public site with Handlebars and a secure admin SPA using JWT authentication.</p>
         </li>
         <li>
@@ -98,11 +184,67 @@
     <section id="documents">
       <h2>Documents</h2>
       <ul>
-        <li><a href="documents/Narrative%20to%20Successful%20Coding.docx" target="_blank" rel="noopener" download>Narrative to Successful Coding (DOCX)</a></li>
-        <li><a href="documents/Setting%20up%20the%20Narrative%20for%20Success.docx" target="_blank" rel="noopener" download>Setting up the Narrative for Success (DOCX)</a></li>
-        <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener" download>InvenTitan &amp; Travlr Getaways Narrative (DOCX)</a></li>
-        <li><a href="documents/Artifact%20Narrative.docx" target="_blank" rel="noopener" download>Artifact Narrative (DOCX)</a></li>
+        <li><a href="documents/Narrative%20to%20Successful%20Coding.docx" target="_blank" rel="noopener noreferrer" download>Narrative to Successful Coding (DOCX)</a></li>
+        <li><a href="documents/Setting%20up%20the%20Narrative%20for%20Success.docx" target="_blank" rel="noopener noreferrer" download>Setting up the Narrative for Success (DOCX)</a></li>
+        <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>InvenTitan &amp; Travlr Getaways Narrative (DOCX)</a></li>
+        <li><a href="documents/Artifact%20Narrative.docx" target="_blank" rel="noopener noreferrer" download>Artifact Narrative (DOCX)</a></li>
       </ul>
+    </section>
+
+    <!-- Commands you can run (shows you're hands-on) -->
+    <section id="commands">
+      <h2>Automation & Security Setup (Quick Commands)</h2>
+      <div class="card">
+        <h3 style="margin-top:0">MEAN API Hardening</h3>
+        <pre><code>npm i helmet express-rate-limit cors bcrypt jsonwebtoken dotenv zod mongoose \
+  mongo-sanitize</code></pre>
+        <pre><code>// example (Express)
+import helmet from "helmet";
+import rateLimit from "express-rate-limit";
+import cors from "cors";
+
+app.use(helmet());
+app.use(cors({ origin: ["https://your-admin.app"], methods: ["GET","POST","PUT","DELETE"], credentials: true }));
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 200 }));</code></pre>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Angular Admin (JWT Interceptor)</h3>
+        <pre><code>ng g interceptor auth/jwt
+// attach token, redirect on 401/403, handle refresh if present</code></pre>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">Firebase & AWS (CLIs)</h3>
+        <pre><code>// Firebase
+npm i firebase
+npm i -g firebase-tools
+firebase login
+firebase init
+
+// AWS CLI (Windows)
+winget install AWSCLI.AWSCLI
+aws configure  # use least-privileged IAM user</code></pre>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top:0">CI with GitHub Actions (skeleton)</h3>
+        <pre><code># .github/workflows/ci.yml
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci && npm run lint && npm test  # API
+      # - run: cd app_admin && npm ci && npm run build  # Angular
+      # - name: Upload artifact
+      #   uses: actions/upload-artifact@v4
+      #   with: { name: build, path: app_admin/dist }</code></pre>
+      </div>
     </section>
 
     <section id="skills">
@@ -122,7 +264,7 @@
       <p>If you'd like to connect or learn more about my work, feel free to reach out:</p>
       <ul>
         <li>Email: <a href="mailto:cortland.burns@email.com">cortland.burns@email.com</a></li>
-        <li>GitHub: <a href="https://github.com/Cburns1337" target="_blank" rel="noopener">github.com/Cburns1337</a></li>
+        <li>GitHub: <a href="https://github.com/Cburns1337" target="_blank" rel="noopener noreferrer">github.com/Cburns1337</a></li>
       </ul>
     </section>
   </main>
