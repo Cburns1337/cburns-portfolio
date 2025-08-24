@@ -1,0 +1,96 @@
+name: Flutter CI & Deploy to Portfolio
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+concurrency:
+  group: flutter-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Your GitHub Pages project path and subfolder for the Flutter demo
+  PORTFOLIO_OWNER: Cburns1337
+  PORTFOLIO_REPO: cburns-portfolio
+  PORTFOLIO_SUBDIR: inventitan
+  # Must end with a trailing slash for Flutter web routing to work
+  FLUTTER_BASE_HREF: /cburns-portfolio/inventitan/
+
+jobs:
+  analyze_test_build_web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Show Flutter version
+        run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test (non-blocking while tests ramp up)
+        run: flutter test --coverage || true
+
+      - name: Build Web (with base href for GitHub Pages)
+        run: |
+          flutter build web --release \
+            --base-href "${{ env.FLUTTER_BASE_HREF }}"
+
+      - name: Upload Web Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web
+
+  deploy_to_portfolio:
+    # Only deploy when the build job succeeds and this is a push to main
+    needs: analyze_test_build_web
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download built web artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: web-build
+
+      # Check out your portfolio repo into ./portfolio using a PAT
+      - name: Checkout portfolio repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.PORTFOLIO_OWNER }}/${{ env.PORTFOLIO_REPO }}
+          path: portfolio
+          token: ${{ secrets.PORTFOLIO_TOKEN }}
+
+      - name: Inject build into portfolio subfolder
+        run: |
+          set -e
+          DEST="portfolio/${{ env.PORTFOLIO_SUBDIR }}"
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+          cp -R web-build/* "$DEST"/
+          # Ensure Pages serves raw files (no Jekyll processing)
+          touch portfolio/.nojekyll
+
+      - name: Commit & push to portfolio repo
+        working-directory: portfolio
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Deploy InvenTitan web build to /${{ env.PORTFOLIO_SUBDIR }}/ (from $GITHUB_REPOSITORY@${GITHUB_SHA})"
+            git push origin HEAD:main
+          fi

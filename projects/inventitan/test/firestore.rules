@@ -1,0 +1,69 @@
+// firestore.rules
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{db}/documents {
+
+    // ---------- Helpers ----------
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function validString(s, min, max) {
+      return s is string && s.size() >= min && s.size() <= max;
+    }
+
+    function validInt(n, min, max) {
+      return n is int && n >= min && n <= max;
+    }
+
+    function validNumber(n, min, max) {
+      return (n is int || n is float) && n >= min && n <= max;
+    }
+
+    function allowedItemKeys() {
+      return ['name','quantity','price','warehouse','description','updatedAt'];
+    }
+
+    // For create/update we validate the resulting doc (after merge)
+    function isValidItemDoc() {
+      // Required keys present and only allowed keys exist
+      return
+        request.resource.data.keys().hasAll(allowedItemKeys()) &&
+        request.resource.data.keys().hasOnly(allowedItemKeys()) &&
+
+        // Field validations
+        validString(request.resource.data.name, 1, 80) &&
+        validInt(request.resource.data.quantity, 0, 1000000) &&
+        validNumber(request.resource.data.price, 0, 1000000) &&
+        validString(request.resource.data.warehouse, 1, 80) &&
+        validString(request.resource.data.description, 0, 2000) &&
+
+        // Timestamp must be server time (works with FieldValue.serverTimestamp)
+        (request.resource.data.updatedAt is timestamp &&
+         request.resource.data.updatedAt == request.time);
+    }
+
+    // ---------- Rules ----------
+    match /users/{uid} {
+      // (Optional) allow the user to keep a private profile doc if you use it.
+      allow read, write: if isOwner(uid);
+
+      match /items/{itemId} {
+        // Read own items
+        allow read: if isOwner(uid);
+
+        // Create/Update: owner + schema validation
+        allow create: if isOwner(uid) && isValidItemDoc();
+        allow update: if isOwner(uid) && isValidItemDoc();
+
+        // Delete: owner only
+        allow delete: if isOwner(uid);
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+name: inventitan
+description: "Recreated and Remastered"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+  # (optional) If you want to pin Flutter as well:
+  # flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Local persistence (primary)
+  sqflite: ^2.3.2
+  path_provider: ^2.1.2
+  path: ^1.9.0
+
+  # Optional encrypted SQLite (use if you decide to encrypt local DB)
+  sqflite_sqlcipher: ^3.3.0
+
+  # FlutterFire (Flutter-only cloud integration)
+  firebase_core: ^4.0.0
+  firebase_auth: ^6.0.1
+  cloud_firestore: ^6.0.0
+  firebase_storage: ^13.0.0
+
+  # Secrets / tokens at rest
+  flutter_secure_storage: ^9.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  # Make sure these image files exist in your repo:
+  assets:
+    - assets/icon.png
+    # Optional if you want a separate foreground for Android adaptive icons:
+    - assets/icon-foreground.png
+
+# ---- Launcher Icons Configuration ----
+# Uses package: flutter_launcher_icons
+# Run: flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/icon.png
+  # Adaptive icon settings for Android 8.0+
+  adaptive_icon_background: "#0a1a0a"   # matches your site header
+  adaptive_icon_foreground: assets/icon-foreground.png
+  min_sdk_android: 23
+
+  # Windows icon
+  windows:
+    generate: true
+    image_path: assets/icon.png
+    icon_size: 256
+
+  # macOS icon
+  macos:
+    generate: true
+    image_path: assets/icon.png
+
+  # Web PWA icons + colors
+  web:
+    generate: true
+    image_path: assets/icon.png
+    background_color: "#0a1a0a"
+    theme_color: "#21f37b"

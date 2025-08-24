@@ -1,0 +1,97 @@
+# -----------------------------
+# OS / Editors
+# -----------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.iml
+*.ipr
+*.iws
+.idea/
+# ignore VS Code settings
+.vscode/
+
+# -----------------------------
+# Flutter / Dart / Pub
+# -----------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+/build/
+coverage/
+
+# Keep pubspec.lock for APPS (helps reproducible builds)
+
+# -----------------------------
+# Android
+# -----------------------------
+android/.gradle/
+android/.cxx/
+android/local.properties
+android/key.properties
+*.keystore
+*.jks
+# Build outputs
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# -----------------------------
+# iOS
+# -----------------------------
+ios/Pods/
+ios/.symlinks/
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+# Xcode user data
+ios/Runner.xcworkspace/xcuserdata/
+ios/Runner.xcodeproj/project.xcworkspace/xcuserdata/
+# Generated plugin registrant
+ios/Runner/GeneratedPluginRegistrant.*
+
+# -----------------------------
+# Desktop (Flutter)
+# -----------------------------
+macos/Flutter/ephemeral/
+linux/flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# -----------------------------
+# Web
+# -----------------------------
+# (build output covered by /build/)
+
+# -----------------------------
+# Secrets / Config
+# -----------------------------
+.env
+.env.*
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+*.p12
+*.pem
+
+# -----------------------------
+# Large binaries (prefer Releases or LFS)
+# -----------------------------
+*.mp4
+*.mov
+*.zip
+*.7z
+*.rar
+*.apk
+*.aab
+*.ipa
+*.obb
+
+# -----------------------------
+# Symbolication / obfuscation
+# -----------------------------
+app.*.symbols
+app.*.map.json
