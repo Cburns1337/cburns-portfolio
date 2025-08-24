@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cortland Burns | Computer Science ePortfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
@@ -15,8 +15,10 @@
   <nav>
     <ul>
       <li><a href="#about">About Me</a></li>
+      <li><a href="#artifacts">Artifacts</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#demos">Demos</a></li>
+      <li><a href="#documents">Documents</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -28,24 +30,46 @@
       <p>Hi, I’m Cortland Burns! I've been pursuing a degree in Computer Science for over two years, with a strong focus on application development, full-stack design, and secure systems architecture. I have a passion for solving real-world problems through scalable and intuitive software — whether that means optimizing backend logic, designing dynamic interfaces, or building smart agents.</p>
     </section>
 
+    <!-- In-depth Artifacts (focus on two) -->
+    <section id="artifacts">
+      <h2>Artifacts (In-Depth)</h2>
+
+      <article>
+        <h3>InvenTitan (Android / Flutter)</h3>
+        <p>A cross-platform inventory manager. Originated as an Android app and expanded with a Flutter/Dart implementation. Features full CRUD, local persistence (SQLite), and a modular UI.</p>
+        <ul>
+          <li><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener">Source: InvenTitan repository</a></li>
+          <li><a href="https://github.com/Cburns1337/CS360-Journal-8_3" target="_blank" rel="noopener">Reference: CS360 Journal 8_3</a></li>
+          <li><a href="media/AndroidApp.mp4" target="_blank" rel="noopener">Demo Video: Android Application</a></li>
+          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener" download>Narrative (DOCX)</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Travlr Getaways (Full Stack MEAN)</h3>
+        <p>A full stack travel booking platform using MongoDB, Express.js, Angular, and Node.js. Public site with Handlebars plus a secure Angular admin SPA with JWT authentication.</p>
+        <ul>
+          <li><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener">Source: cs465-fullstack repository</a></li>
+          <li><a href="media/TravlrGetaways.mp4" target="_blank" rel="noopener">Demo Video: Travlr Getaways</a></li>
+          <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener" download>Narrative (DOCX)</a></li>
+        </ul>
+      </article>
+    </section>
+
     <section id="projects">
       <h2>Highlighted Projects</h2>
       <ul class="project-list">
         <li>
-          <h3><a href="https://github.com/Cburns1337/DriverPassProject" target="_blank" rel="noopener">DriverPass Training System</a></h3>
-          <p>An in-depth driver education and scheduling platform with multi-role access, data reporting, and security-focused design. Built with UML diagrams and iterative Agile strategies.</p>
-        </li>
-        <li>
           <h3><a href="https://github.com/Cburns1337/IvenTitan" target="_blank" rel="noopener">InvenTitan Inventory Manager</a></h3>
-          <p>An Android-based inventory management tool with real-time updates, secure authentication, and a modular UI — optimized for small business use.</p>
+          <p>Inventory management app with secure auth, real-time updates, and a modular UI. Expanded with a Flutter/Dart version for cross-platform support.</p>
         </li>
         <li>
           <h3><a href="https://github.com/Cburns1337/cs465-fullstack" target="_blank" rel="noopener">Travlr Getaways (Full Stack MEAN)</a></h3>
-          <p>A full stack travel booking app built using MongoDB, Express.js, Angular, and Node.js. Includes a public site with Handlebars and a secure admin SPA using JWT authentication.</p>
+          <p>Full stack travel booking app (MongoDB, Express, Angular, Node). Public site with Handlebars and a secure admin SPA using JWT authentication.</p>
         </li>
         <li>
           <h3><a href="flutter-project/">Flutter Inventory Application</a></h3>
-          <p>A cross-platform mobile app built with Flutter/Dart for managing inventory, featuring CRUD operations, SQLite integration, and a clean, modular UI.</p>
+          <p>Flutter/Dart build of InvenTitan with SQLite persistence and a clean, modular UI. Deployed for web or mobile as needed.</p>
         </li>
       </ul>
     </section>
@@ -56,7 +80,7 @@
         <figure>
           <figcaption>Travlr Getaways Demo</figcaption>
           <video controls width="560" preload="metadata">
-            <source src="media/TravlrGetaways.mp4" type="video/mp4">
+            <source src="media/TravlrGetaways.mp4" type="video/mp4"/>
             Your browser does not support the video tag.
           </video>
         </figure>
@@ -64,11 +88,21 @@
         <figure>
           <figcaption>Android Application Demo</figcaption>
           <video controls width="560" preload="metadata">
-            <source src="media/AndroidApp.mp4" type="video/mp4">
+            <source src="media/AndroidApp.mp4" type="video/mp4"/>
             Your browser does not support the video tag.
           </video>
         </figure>
       </div>
+    </section>
+
+    <section id="documents">
+      <h2>Documents</h2>
+      <ul>
+        <li><a href="documents/Narrative%20to%20Successful%20Coding.docx" target="_blank" rel="noopener" download>Narrative to Successful Coding (DOCX)</a></li>
+        <li><a href="documents/Setting%20up%20the%20Narrative%20for%20Success.docx" target="_blank" rel="noopener" download>Setting up the Narrative for Success (DOCX)</a></li>
+        <li><a href="documents/InvenTitan%20and%20Travlr%20Getaways%20Narrative.docx" target="_blank" rel="noopener" download>InvenTitan &amp; Travlr Getaways Narrative (DOCX)</a></li>
+        <li><a href="documents/Artifact%20Narrative.docx" target="_blank" rel="noopener" download>Artifact Narrative (DOCX)</a></li>
+      </ul>
     </section>
 
     <section id="skills">
